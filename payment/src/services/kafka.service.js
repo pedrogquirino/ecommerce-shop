@@ -32,26 +32,4 @@ module.exports = {
       console.log(`[Stream] ERROR: ${error} `);
     }
   },
-  async producer(topicName, eventType, data) {
-    console.log("[Stream] Sending data......");
-    const event = { eventType, data };
-
-    try {
-      const kafka = new Kafka({
-        clientId: config.Kafka.Client,
-        brokers: config.Kafka.Brokers,
-      });
-
-      const producer = kafka.producer();
-      await producer.connect();
-      await producer.send({
-        topic: topicName,
-        messages: [{ value: JSON.stringify(event) }],
-      });
-      await producer.disconnect();
-      console.log("[Stream] Data sended.");
-    } catch (error) {
-      console.log(`[Stream] ERROR: ${error} `);
-    }
-  },
 };

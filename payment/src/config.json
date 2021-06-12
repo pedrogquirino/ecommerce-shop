@@ -1,0 +1,13 @@
+{
+  "Kafka": {
+    "Client": "my-app",
+    "GroupId": "group-id",
+    "Brokers": ["localhost:29092"],
+    "Topics": {
+      "Orders": "topic-orders"
+    },
+    "Events": {
+      "OrderCreated": "order-created"
+    }
+  }
+}

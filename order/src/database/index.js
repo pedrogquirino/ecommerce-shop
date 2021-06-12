@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import dbConfig from "../config/database";
-import Order from "../models/Order";
-import Item from "../models/Item";
+import Order from "../models/order.model";
+import Item from "../models/item.model";
 
 const connection = new Sequelize(dbConfig);
 
