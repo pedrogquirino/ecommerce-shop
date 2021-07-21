@@ -1,6 +1,6 @@
-import Order from "../models/order.model";
-import Item from "../models/item.model";
-import KafkaService from "../services/kafka.service";
+const Order = require("../models/order.model");
+const Item = require("../models/item.model");
+const KafkaService = require("../services/kafka.service");
 const config = require("../config");
 
 module.exports = {

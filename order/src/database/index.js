@@ -1,7 +1,7 @@
-import Sequelize from "sequelize";
-import dbConfig from "../config/database";
-import Order from "../models/order.model";
-import Item from "../models/item.model";
+const Sequelize = require("sequelize");
+const dbConfig = require("../config/database");
+const Order = require("../models/order.model");
+const Item = require("../models/item.model");
 
 const connection = new Sequelize(dbConfig);
 

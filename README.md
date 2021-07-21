@@ -1,4 +1,4 @@
-# Ecommerce microservice architecture project
+# Ecommerce event-driven architecture project
 
 This repository is a study project of event-driven microservices architecture that uses asynchronous communication between the microservices.
 It based on an ecommerce case, and the business flow starts at the cart checkout and finishs at order shippment to the customer.

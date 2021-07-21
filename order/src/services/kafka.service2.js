@@ -6,7 +6,7 @@ module.exports = {
     try {
       const kafka = new Kafka({
         clientId: "kafka",
-        brokers: ["localhost:29092"],
+        brokers: ["kafka:29092"],
       });
 
       const producer = kafka.producer();

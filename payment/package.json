@@ -2,27 +2,19 @@
   "name": "order",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.js"
+    "start": "nodemon src/server.js",
+    "start-prod": "node src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "kafkajs": "^1.15.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.13.16",
-    "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/register": "^7.13.16",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "nodemon": "^2.0.7"
   }
 }
