@@ -7,7 +7,7 @@ It based on an ecommerce case, and the business flow starts at the cart checkout
 ### Stack
 
 ![nodejs](file/../files/nodejs_logo.jpg)  
-![sqlite](file/../files/sqlite_logo.png)  
+![postgres](file/../files/postgres_logo.jpg)  
 ![kafka](file/../files/kafka_logo.jpg)
 
 ### Notes
