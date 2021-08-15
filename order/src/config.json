@@ -2,7 +2,7 @@
   "Kafka": {
     "Client": "my-app",
     "GroupId": "group-id",
-    "Brokers": ["kafka:29092"],
+    "Brokers": ["kafka:9092"],
     "Topics": {
       "Orders": "topic-orders"
     },

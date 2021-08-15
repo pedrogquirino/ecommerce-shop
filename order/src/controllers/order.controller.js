@@ -1,6 +1,6 @@
 const Order = require("../models/order.model");
 const Item = require("../models/item.model");
-const KafkaService = require("../services/kafka.service");
+const KafkaService = require("../services/kafkaService");
 const config = require("../config");
 
 module.exports = {
@@ -16,11 +16,12 @@ module.exports = {
         include: [{ model: Item, as: "items" }],
       });
 
-      await KafkaService.producer(
-        config.Kafka.Topics.Orders,
-        config.Kafka.EventTypes.OrderCreated,
-        orderCreatedData
-      );
+      const message = {
+        Event: config.Kafka.EventTypes.OrderCreated,
+        Data: orderCreatedData,
+      };
+
+      await KafkaService.producer(config.Kafka.Topics.Orders, message);
       return res.send(orderCreatedData);
     } catch (error) {
       return res.json({ Error: `${error}` }).status(500);

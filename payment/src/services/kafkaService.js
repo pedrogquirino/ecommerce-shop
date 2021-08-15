@@ -1,12 +1,9 @@
 const { Kafka } = require("kafkajs");
 const config = require("../config");
+const PaymentService = require("../services/paymentService");
 
 module.exports = {
-  async consumer(consumerGroupId, consumerTopic) {
-    console.log(
-      `[Stream] Initialize stream consumer on topic: ${consumerTopic}`
-    );
-
+  async consumer(consumerGroupId, topics, callback) {
     try {
       const kafka = new Kafka({
         clientId: config.Kafka.Client,
@@ -14,18 +11,20 @@ module.exports = {
       });
 
       const consumer = kafka.consumer({ groupId: consumerGroupId });
-
       await consumer.connect();
-      await consumer.subscribe({
-        topic: consumerTopic,
-        fromBeginning: true,
+
+      topics.forEach(async (topic) => {
+        console.log(`[Stream] Initialize stream consumer on topic: ${topic}`);
+
+        await consumer.subscribe({
+          topic: topic,
+          fromBeginning: true,
+        });
       });
 
       await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
-          console.log({
-            value: message.value.toString(),
-          });
+          callback(topic, message.value.toString());
         },
       });
     } catch (error) {
