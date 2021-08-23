@@ -1,8 +1,7 @@
 const { Kafka } = require("kafkajs");
 const config = require("../config");
-const PaymentService = require("../services/paymentService");
 
-module.exports = {
+const kafkaService = {
   async consumer(consumerGroupId, topics, callback) {
     try {
       const kafka = new Kafka({
@@ -32,3 +31,5 @@ module.exports = {
     }
   },
 };
+
+module.exports = kafkaService;

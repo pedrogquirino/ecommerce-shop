@@ -1,9 +1,10 @@
-const PaymentService = require("./services/paymentService");
+const config = require("../config");
+const paymentService = require("../services/paymentService");
 
 const handler = (event, message) => {
   switch (event) {
     case config.Kafka.Topics.Orders:
-      PaymentService.processOrder(message);
+      paymentService.processOrder(message);
     default:
   }
 };

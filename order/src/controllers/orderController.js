@@ -12,17 +12,22 @@ module.exports = {
   async store(req, res) {
     const order = req.body;
     try {
-      const orderCreatedData = await Order.create(order, {
+      const orderCreated = await Order.create(order, {
         include: [{ model: Item, as: "items" }],
       });
 
+      const eventData = {
+        id: orderCreated.id,
+        createdAt: orderCreated.createdAt,
+      };
+
       const message = {
-        Event: config.Kafka.EventTypes.OrderCreated,
-        Data: orderCreatedData,
+        event: config.Kafka.EventTypes.OrderCreated,
+        data: eventData,
       };
 
       await KafkaService.producer(config.Kafka.Topics.Orders, message);
-      return res.send(orderCreatedData);
+      return res.send(orderCreated);
     } catch (error) {
       return res.json({ Error: `${error}` }).status(500);
     }

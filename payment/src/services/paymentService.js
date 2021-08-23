@@ -1,7 +1,7 @@
-const PaymentService = {
+const paymentService = {
   processOrder(order) {
     console.log(`"Order processing: ${order}`);
   },
 };
 
-module.exports = PaymentService;
+module.exports = paymentService;
