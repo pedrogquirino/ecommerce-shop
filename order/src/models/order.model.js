@@ -9,7 +9,10 @@ class Order extends Model {
           autoIncrement: true,
           primaryKey: true,
         },
-        amount: {
+        total_amount: {
+          type: DataTypes.DECIMAL,
+        },
+        total_quantity: {
           type: DataTypes.DECIMAL,
         },
       },

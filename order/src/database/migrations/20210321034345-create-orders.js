@@ -9,7 +9,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      amount: {
+      total_amount: {
+        type: Sequelize.DECIMAL,
+        allowNull: false,
+      },
+      total_quantity: {
         type: Sequelize.DECIMAL,
         allowNull: false,
       },

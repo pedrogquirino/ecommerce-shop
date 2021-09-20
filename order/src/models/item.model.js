@@ -6,7 +6,7 @@ class Item extends Model {
       {
         description: DataTypes.STRING,
         quantity: DataTypes.DECIMAL,
-        total_amount: DataTypes.DECIMAL,
+        amount: DataTypes.DECIMAL,
         order_id: {
           type: DataTypes.INTEGER,
           references: {
